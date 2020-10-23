@@ -139,6 +139,13 @@ We'll use IPython for the first portion of this lesson.
 
 ## Fundamental Characteristics of Python
 
+### Syntax
+
+1. Snake Case: `keep_your_variables_defined_this_way` and `we_are_in_pythons_house_now`.
+2. **Parens** `()` in Python are required around parameters at all times
+3. Line breaks/ **whitespace** instead of semicolons, and closing curly braces!
+4. **colons** `:` directly after the first line of the block statement, immediately followed by a new, indented line. Colons replace `{` in JS.
+
 ### Variables
 
 Variables in Python are assigned by using a single equals sign (`=`):
@@ -399,6 +406,47 @@ else:
     print("If you value your head, you should not get on this ride.")
 ```
 
+### Loops
+
+Also like Javascript, Python employs `while` and `for` loops.
+
+Python also allows for an optional `else` statement with each of these. With
+`while` loops, the `else` statement is executed once the `while` condition is
+no longer true. With `for` loops, `else` is executed upon the loop's
+completion.
+
+```python
+count = 0
+while count < 5:
+   print(count, " is  less than 5")
+   count = count + 1
+else:
+   print(count, " is not less than 5")
+```
+
+```python
+count = 15
+for i in range(1,count):
+  print(i)
+else:
+  print("done")
+```
+
+Again, this `else` is optional and different in nature from a conditional else.
+It functions more as a completion handler.
+
+
+#### Brief Aside: Docstrings
+
+You may have noticed something like
+
+`"""This function..."""`
+
+within each of our example functions. These are called `docstrings` and are
+conventionally used in Python to provide documentation throughout a codebase.
+Code will run fine without them, but that would stray from Python's conventions
+as well as throw you into linter message hell. Try them out!
+
 ## Print and Input (`input` & `output`)
 
 To print out to the console like `console.log()` does in JavaScript, we use the
@@ -566,6 +614,114 @@ numbers
 # => [3, 1, 2, 4]
 ```
 
+## Tuples
+
+### Tuples - Purpose
+<br>
+
+- **Tuples** in Python are very similar to **lists**.
+
+- _Tuples_ have a class (type) of `tuple`.
+
+---
+### Tuples - Basic Syntax
+<br>
+
+- _Tuples_ can be defined in a few different ways.  Most basically, they are defined like this:
+
+	```python
+	colors = ('red', 'green', 'blue')
+	print(colors)
+	> ('red', 'green', 'blue')
+	print( len(colors) )
+	> 3
+	``` 
+	Although it seems that _parentheses_ are used to create _tuples_, it's actually the _commas_.
+
+---
+
+### Tuples - Basic Syntax
+<br>
+
+- _Tuples_ can be created without using any parentheses:
+
+	```python
+	colors = 'red', 'green', 'blue'
+	print(type(colors))
+	> <class 'tuple'>
+	```
+
+- However, creating single-item _tuples_ without parens requires a trailing comma:
+
+	```python
+	colors = 'purple',  # tuple, not a string
+	print(type(colors), len(colors))
+	> <class 'tuple'> 1
+	print(colors)
+	> ('purple',)
+	```
+
+---
+### Differences Between Tuples & Lists
+
+- _Tuples_ are immutable, so they are great for protecting data that you don't want changed.
+
+- Because they are immutable, iterating over _tuples_ is faster than with _lists_. They can also be used as _keys_ for _dictionaries_.
+
+- Generally, you'll find that _tuples_ are used to contain heterogeneous (different) data types and _lists_ for homogeneous (similar) data types.
+
+- _Tuples_ are often classified based on how many elements they contain, e.g., a **2-tuple** would be used to hold a `key` and its `value`.
+
+---
+### Tuples - Accessing Elements
+
+- Although _tuples_ can't be modified like _lists_, we can retrieve their elements in exactly the same way:
+
+	```python
+	colors = ('red', 'green', 'blue')
+	green = colors[1]
+	print(green)
+	> green
+	```
+- _Sequences_ also have an `index()` method that returns the index of the first match:
+
+	```python
+	colors = ('red', 'green', 'blue')
+	blue_idx = colors.index('blue')
+	print(blue_idx)
+	> 2
+	```
+	
+---
+### Tuples - Iteration
+<br>
+
+- Just like with _lists_, other _sequences_ are iterated upon in the same way - by using `for` loops:
+
+	```python
+	colors = ('red', 'green', 'blue')
+	for idx, color in enumerate(colors):
+		print(idx, color)
+	> 0 red
+	> 1 green
+	> 2 blue
+	```
+
+---
+### Tuples - Unpacking
+<br>
+
+- _Tuples_ have a convenient feature, called _unpacking_, for doing multiple variable assignment:
+
+	```python
+	colors = ('red', 'green', 'blue')
+	red, green, blue = colors
+	print(red, green, blue)
+	> red green blue
+	```
+	A tuple of variables on the left-side of the assignment operator and a tuple of values on the right is all it takes.
+
+
 ## Dictionary
 
 A Python dictionary is an unordered collection organized by key-value pairs. A
@@ -697,6 +853,65 @@ len(sei_class)
 Complete the second set of exercises in the
 [data_collections readme](data_collections.md).
 
+
+## Sequences Can Be "Sliced"
+
+---
+### Slicing Sequences
+<br>
+
+- Python is known for having some cool tricks up its sleeve, for one, there's the "slice" operator (`[m:n]`).
+
+- Since _sequence_ types are a collection of items (BTW, characters are the items in a _string_), we should be to target any subset of those items. We can, and those subsets are called _slices_.
+
+---
+### Slicing Sequences
+<br>
+
+- Just like with indexing, slicing uses _square brackets_, but adds a _colon_:
+
+	```python
+	short_name = 'Alexandria'[0:4]
+	print(short_name)
+	> Alex
+	```
+
+- Note that the slice includes up to, but not including the index to the right of the colon.
+
+---
+
+### Slicing Sequences
+<br>
+
+- If the first index is omitted, the slice copies the _sequence_ starting at the beginning:
+
+	```python
+	colors = ('red', 'green', 'blue')
+	print( colors[:2] )
+	> ('red', 'green')
+	```
+ 
+- If the up to index is omitted, the slice copies the _sequence_ all the way to the end:
+
+	```python
+	colors = ['red', 'green', 'blue']
+	print( colors[1:] )
+	> ['green', 'blue']
+	```
+
+---
+### Slicing Sequences - Question
+<br>
+
+- **What would the value of `fruit_copy` be?**
+
+	```python
+	fruit = ('apples', 'bananas', 'oranges')
+	fruit_copy = fruit[:]
+	```
+
+---
+
 ## Functions
 
 In Python, functions are defined like this:
@@ -773,6 +988,110 @@ comfortable you get with it, the easier it is to "think" in that language.
 - [Python Beginner Tutorial (Docs)](https://docs.python.org/3/tutorial/index.html)
 
 ## Bonus
+
+### List Comprehensions
+<br>
+
+- One of the most powerful features in Python are _list comprehensions_.
+
+- _List comprehensions_ provide a concise way to create and work with lists.
+
+- They will probably seem a little confusing as first, but they certainly are a favorite of _Pythonistas_ and you will certainly come across them when googling.
+
+- Also, _comprehensions_ can be used similarly to create _dictionaries_ too.
+
+---
+### List Comprehensions<br><small>Numerical Example</small>
+<br>
+
+- If we needed to square all of the numbers in a _list_ and put them into a new _list_, we might use a for loop like this:
+
+	```python
+	nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	
+	# I want 'n * n' for each 'n' in nums 
+	squares = []
+	for n in nums:
+		squares.append(n * n)
+	print(squares)
+	> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+	```
+
+- **What method in JS would we use in this scenario?**
+
+---
+### List Comprehensions<br><small>Numerical Example</small>
+
+- A _list comprehension_ can reduce this code:
+
+	```python
+	# I want 'n * n' for each 'n' in nums 
+	squares = []
+	for n in nums:
+		squares.append(n * n)
+	```
+	To this:
+	
+	```python
+	# I want 'n * n' for each 'n' in nums 
+	squares = [n * n for n in nums]
+	```
+
+- The _comprehension_ is basically an advanced `for` loop within _square brackets_ which, of course, returns a new _list_.
+
+---
+### List Comprehensions - Basic Syntax
+<br>
+
+- Here's the basic syntax of a _list comprehension_:
+
+	```python
+	# [<expression> for <item> in <list>]
+	# This reads as: I want <expression> for each <item> in <list>
+	```
+
+---
+### List Comprehensions - Filtering
+
+- We've seen how _list comprehensions_ are a nice way to map a list, but they can be used for **filtering** too.
+
+- Just like before, let's first look at how we would use a `for` loop to map and filter simultaneously:
+
+	```python
+	nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	
+	# I want 'n * n' for each 'n' in nums  if 'n * n' is even
+	even_squares = []
+	for n in nums:
+		square = n * n 
+		if square % 2 == 0:
+			even_squares.append(square)
+	print(even_squares)
+	> [4, 16, 36, 64, 100]
+	```
+
+---
+### List Comprehensions - Filtering
+
+- Again _list comprehensions_ reduce the mapping and filtering from:
+
+	```python
+	# I want 'n * n' for each 'n' in nums  if 'n * n' is even
+	even_squares = []
+	for n in nums:
+		square = n * n 
+		if square % 2 == 0:
+			even_squares.append(square)
+	```
+	To this one-liner:
+	
+	```python
+	# I want 'n * n' for each 'n' in nums  if 'n * n' is even
+	even_squares = [n * n for n in nums if (n * n) % 2 == 0]
+	```
+	Nice and readable!
+
+---
 
 ### [Pyenv](https://github.com/pyenv/pyenv)
 
