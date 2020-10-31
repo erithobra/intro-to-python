@@ -118,25 +118,6 @@ python3 app.py   # Run that Python file
 
 If you're inside IPython you can run the file like so: `run app.py`
 
-#### By REPL (Read-Evaluate-Print-Loop)
-
-The second way that we can interact with Python code is with a tools like
-IPython or the Python shell. These are both REPLs. Have we used these before?
-
-```sh
-pip3 install ipython # install IPython
-ipython               # start IPython REPL
-exit                  # quit IPython
-python3                # start Python3 REPL
-exit()                # quit Python REPL
-```
-
-> IPython is an alternative Python shell that adds a bunch of features like tab
-> completion, better syntax highlighting, and the ability to inline embed
-> graphics.
-
-We'll use IPython for the first portion of this lesson.
-
 ## Fundamental Characteristics of Python
 
 ### Syntax
@@ -171,7 +152,7 @@ to use them.
 
 ## You Do: Data Types (20 min / 0:25)
 
-Start the IPython REPL in your terminal and start working through the prompts
+Start the Python REPL in your terminal and start working through the prompts
 below.
 
 <details>
