@@ -443,7 +443,7 @@ using `input`:
 
 ![input](assets/user_input.png)
 
-## We Do: Python Bouncer (20 min / 0:45)
+## Python Bouncer (20 min / 0:45)
 
 Back during our first few lessons on JavaScript, you used conditionals and
 variables to create a Bouncer.
@@ -461,7 +461,7 @@ Here's the recap of the bouncer rules:
 > Bonus: if age is 18 or older, but under 21, output that the person can enter
 > the bar but cannot drink!
 
-## You Do: Data Types Exercises (15 min / 1:00)
+## Data Types Exercises (15 min / 1:00)
 
 Open exercise 1, `data-types.md`. Read the prompts and try to figure out the
 answer. Write your guess in the answer area below each question. Then run the
