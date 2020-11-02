@@ -419,11 +419,9 @@ It functions more as a completion handler.
 
 #### Brief Aside: Docstrings
 
-You may have noticed something like
-
 `"""This function..."""`
 
-within each of our example functions. These are called `docstrings` and are
+...is an example of a `docstring` and is
 conventionally used in Python to provide documentation throughout a codebase.
 Code will run fine without them, but that would stray from Python's conventions
 as well as throw you into linter message hell. Try them out!
