@@ -57,7 +57,7 @@ with the command `import this`.
 
 ### Getting Python
 
-[Check out Installfest docs here](https://git.generalassemb.ly/jdr-0127/installfest#install-pyenv)
+[Check out Installfest docs here](https://git.generalassemb.ly/jd-seir-6/installfest-1#install-pyenv)
 
 
 <details>
